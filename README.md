@@ -428,14 +428,5 @@ Every push to `main` triggers Argo CD to automatically reconcile the cluster sta
 All visual verification artifacts, terminal outputs, and cloud console evidence required by the grading rubric are documented with high-resolution captures in:
 
 👉 **[SCREENSHOTS.md](demo/SCREENSHOTS.md)**
-
----
-
-## 👤 Author
-
-**Kartik Pettugani**
-
-Built as the Final Capstone Project for the DevOps Engineering course.
-
 ---
 
