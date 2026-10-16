@@ -112,3 +112,15 @@ jobs:
       - name: Publish frontend image
         if: github.event_name != 'pull_request'
         run: docker push "${FRONTEND_IMAGE}:${IMAGE_TAG}"
+
+      - name: Tag main images as latest
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          docker tag "${BACKEND_IMAGE}:${IMAGE_TAG}" "${BACKEND_IMAGE}:latest"
+          docker tag "${FRONTEND_IMAGE}:${IMAGE_TAG}" "${FRONTEND_IMAGE}:latest"
+
+      - name: Publish latest images
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          docker push "${BACKEND_IMAGE}:latest"
+          docker push "${FRONTEND_IMAGE}:latest"
