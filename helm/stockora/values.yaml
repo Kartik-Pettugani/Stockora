@@ -22,7 +22,7 @@ backend:
       cpu: 300m
       memory: 256Mi
 
-replicaCount: 2
+replicaCount: 3
 namespace: stockora
 imagePullSecrets: []
 
@@ -51,4 +51,4 @@ hpa:
 
 monitoring:
   serviceMonitor:
-    enabled: false
+    enabled: true
