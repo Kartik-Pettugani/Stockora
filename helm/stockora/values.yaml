@@ -22,7 +22,7 @@ backend:
       cpu: 300m
       memory: 256Mi
 
-replicaCount: 3
+replicaCount: 2
 namespace: stockora
 imagePullSecrets: []
 
