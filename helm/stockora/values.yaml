@@ -1,0 +1,54 @@
+frontend:
+  image: ghcr.io/kartik-pettugani/stockora-frontend
+  tag: "634aefd40eb89db91f7232a83d4bb7b371da189a"
+  port: 8080
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+
+backend:
+  image: ghcr.io/kartik-pettugani/stockora-backend
+  tag: "634aefd40eb89db91f7232a83d4bb7b371da189a"
+  port: 8000
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 256Mi
+
+replicaCount: 2
+namespace: stockora
+imagePullSecrets: []
+
+postgres:
+  host: stockora-postgres
+  database: stockora
+  username: stockora
+  password: stockora
+  port: 5432
+  storage: 5Gi
+  persistence:
+    enabled: false
+
+ingress:
+  enabled: true
+  className: nginx
+  host: stockora.local
+  annotations:
+    kubernetes.io/ingress.class: nginx
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 60
+
+monitoring:
+  serviceMonitor:
+    enabled: false

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "stockora.fullname" . }}-backend
+  labels:
+    app: stockora-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: stockora-backend
+  ports:
+    - port: {{ .Values.backend.port }}
+      targetPort: {{ .Values.backend.port }}
+      name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: stockora-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: stockora-backend
+  ports:
+    - port: {{ .Values.backend.port }}
+      targetPort: {{ .Values.backend.port }}
+      name: http
