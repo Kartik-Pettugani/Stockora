@@ -21,12 +21,12 @@ This document serves as the complete visual submission portfolio for **Stockora*
 | **S11** | [`11_aws_console_eks.png`](./screenshots/11_aws_console_eks.png) | **M7: AWS Infrastructure**| ✅ Captured | AWS Management Console showing Active EKS cluster & VPC |
 | **S12** | [`12_terraform_destroy.png`](./screenshots/12_terraform_destroy.png) | **M7: Cost Management** | ✅ Captured | Clean `terraform destroy` completion (no runaway costs) |
 | **S13** | [`13_k8s_pods_svc.png`](./screenshots/13_k8s_pods_svc.png) | **M8: Kubernetes** | ✅ Captured | `kubectl get pods,svc -n stockora` pods & services running |
-| **S14** | [`14_helm_list.png`](./screenshots/14_helm_list.png) | **M8: Helm Package** | ⏳ Placeholder | `helm list -n stockora` deployed release |
-| **S15** | [`15_k8s_ingress_browser.png`](./screenshots/15_k8s_ingress_browser.png) | **M8: Ingress Access** | ⏳ Placeholder | Application loaded through Ingress / LoadBalancer URL |
-| **S16** | [`16_metrics_endpoint.png`](./screenshots/16_metrics_endpoint.png) | **M9: Prometheus Metrics** | ⏳ Placeholder | `curl /metrics` raw output in Prometheus format |
-| **S17** | [`17_prometheus_targets.png`](./screenshots/17_prometheus_targets.png) | **M9: Target Scraping** | ⏳ Placeholder | Prometheus Targets page showing application as `UP` |
-| **S18** | [`18_grafana_dashboard.png`](./screenshots/18_grafana_dashboard.png) | **M9: Grafana Dashboard** | ⏳ Placeholder | Grafana dashboard with live populated metric panels |
-| **S19** | [`19_argocd_sync.png`](./screenshots/19_argocd_sync.png) | **GitOps: Argo CD** | ⏳ Placeholder | Argo CD application in `Synced` & `Healthy` status |
+| **S14** | [`14_helm_list.png`](./screenshots/14_helm_list.png) | **M8: Helm Package** | ✅ Captured | `helm list -n stockora` deployed release & status |
+| **S15** | [`15_k8s_ingress_browser.png`](./screenshots/15_k8s_ingress_browser.png) | **M8: Ingress Access** | ✅ Captured | Application loaded through Ingress host `stockora.local` |
+| **S16** | [`16_metrics_endpoint.png`](./screenshots/16_metrics_endpoint.png) | **M9: Prometheus Metrics** | ✅ Captured | `curl /metrics` raw output in Prometheus format |
+| **S17** | [`17_prometheus_targets.png`](./screenshots/17_prometheus_targets.png) | **M9: Target Scraping** | ✅ Captured | Prometheus Targets page showing application as `UP` |
+| **S18** | [`18_grafana_dashboard.png`](./screenshots/18_grafana_dashboard.png) | **M9: Grafana Dashboard** | ✅ Captured | Grafana dashboard with live populated metric panels |
+| **S19** | [`19_argocd_sync.png`](./screenshots/19_argocd_sync.png) | **GitOps: Argo CD** | ✅ Captured | Argo CD application in `Synced` & `Healthy` status |
 
 ---
 
@@ -153,25 +153,16 @@ This document serves as the complete visual submission portfolio for **Stockora*
 ### S14: Helm Release (`helm list -n stockora`)
 - **File:** `screenshots/14_helm_list.png`  
 - **Rubric Requirement:** `helm list -n stockora` screenshot showing release `stockora`, revision, status `deployed`, and chart version.
-- **How to capture:**
-  ```powershell
-  helm list -n stockora
-  ```
 
 ![Helm Release List](./screenshots/14_helm_list.png)
-
-> *[Placeholder: Save your capture as `screenshots/14_helm_list.png` to automatically display here]*
 
 ---
 
 ### S15: Browser Access via Ingress / LoadBalancer
 - **File:** `screenshots/15_k8s_ingress_browser.png`  
 - **Rubric Requirement:** Browser screenshot of the application accessed through the Ingress hostname (`http://stockora.local`) or AWS LoadBalancer external IP.
-- **How to capture:** Open the Ingress hostname or LoadBalancer URL in browser and capture the full window.
 
 ![Application via Ingress](./screenshots/15_k8s_ingress_browser.png)
-
-> *[Placeholder: Save your capture as `screenshots/15_k8s_ingress_browser.png` to automatically display here]*
 
 ---
 
@@ -180,36 +171,24 @@ This document serves as the complete visual submission portfolio for **Stockora*
 ### S16: Application Prometheus Metrics (`/metrics`)
 - **File:** `screenshots/16_metrics_endpoint.png`  
 - **Rubric Requirement:** Screenshot of `curl http://<backend>/metrics` returning Prometheus-formatted application metrics (`http_requests_total`, latency).
-- **How to capture:**
-  ```powershell
-  curl http://localhost:8000/metrics
-  ```
 
 ![Metrics Endpoint Output](./screenshots/16_metrics_endpoint.png)
-
-> *[Placeholder: Save your capture as `screenshots/16_metrics_endpoint.png` to automatically display here]*
 
 ---
 
 ### S17: Prometheus Targets Page (`UP`)
 - **File:** `screenshots/17_prometheus_targets.png`  
 - **Rubric Requirement:** Prometheus web UI Targets page showing the `stockora-backend` endpoint in state **`UP` (1/1)** with a green badge.
-- **How to capture:** Open `http://localhost:9090/targets` in browser and take screenshot.
 
 ![Prometheus Targets Page](./screenshots/17_prometheus_targets.png)
-
-> *[Placeholder: Save your capture as `screenshots/17_prometheus_targets.png` to automatically display here]*
 
 ---
 
 ### S18: Grafana Dashboard with Real Metrics
 - **File:** `screenshots/18_grafana_dashboard.png`  
 - **Rubric Requirement:** Grafana dashboard with at least one populated panel displaying live application metrics (HTTP requests count, response latency, or status codes).
-- **How to capture:** Open Grafana at `http://localhost:3000` (or `3001`), generate some test traffic to backend, and capture the active graphs.
 
 ![Grafana Dashboard](./screenshots/18_grafana_dashboard.png)
-
-> *[Placeholder: Save your capture as `screenshots/18_grafana_dashboard.png` to automatically display here]*
 
 ---
 
@@ -218,8 +197,5 @@ This document serves as the complete visual submission portfolio for **Stockora*
 ### S19: Argo CD Application Sync & Health
 - **File:** `screenshots/19_argocd_sync.png`  
 - **Rubric Requirement:** Argo CD web UI showing the `stockora` application in **`Synced`** and **`Healthy`** state with GitOps synchronization tree.
-- **How to capture:** Open Argo CD UI at `http://localhost:8080`, click into the `stockora` application, and capture the topology tree.
 
 ![Argo CD Application Status](./screenshots/19_argocd_sync.png)
-
-> *[Placeholder: Save your capture as `screenshots/19_argocd_sync.png` to automatically display here]*
